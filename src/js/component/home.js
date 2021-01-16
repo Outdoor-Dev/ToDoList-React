@@ -12,11 +12,17 @@ export function Home() {
 	]);
 	const [userInput, setUserInput] = useState("");
 
-	const handleKeyUp = () => {
-		if (event.keyCode === 13) {
-		} else {
-			
+	const handleKeyUp = event => {
+		if (event.keyCode === 13 && userInput !== "") {
+			setTask(task.concat(userInput));
+			setUserInput("");
 		}
+	};
+	const itemDelete = index => {
+		let updatedList = task.filter(
+			(tasks, taskIndex) => index !== taskIndex
+		);
+		setTask(updatedList);
 	};
 
 	return (
@@ -36,6 +42,11 @@ export function Home() {
 						return (
 							<li className="list-group-item" key={index}>
 								{value}
+
+								<i
+									className="far fa-trash-alt"
+									onClick={() => itemDelete(index)}
+								/>
 							</li>
 						);
 					})}
