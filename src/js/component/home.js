@@ -34,7 +34,7 @@ export function Home() {
 				className="todo-list mt-5 "
 				style={{ width: 500, height: 900 }}>
 				<input
-					className="tasks mb-4 mt-5 bg-white"
+					className="tasks mb-4 mt-5 "
 					style={{ width: 300, height: 50 }}
 					type="text"
 					onChange={e => setUserInput(e.target.value)}
